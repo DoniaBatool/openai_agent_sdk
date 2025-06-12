@@ -33,7 +33,7 @@ triage_agent = Agent(
     name="Triage Agent",
     instructions="You determine which agent to use based on the user's homework question." +
     "If neither agent is relevant, provide a general response.",
-    handoffs=[handoff(history_tutor_agent, on_handoff=print("this is history tutor")), 
+    handoffs=[handoff(history_tutor_agent, on_handoff=on_history_handoff), 
               handoff(math_tutor_agent, on_handoff=on_math_handoff)]
 )
 result = Runner.run_sync(triage_agent, "How do I add 2 and 2?")
