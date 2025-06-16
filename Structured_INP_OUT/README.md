@@ -1,0 +1,8 @@
+# Structured Input/Output
+
+The **Structured_INP_OUT** folder contains an example of enforcing structured inputs or outputs using Pydantic models (or similar schema) with the Agents SDK. This is useful for getting predictable, type-safe responses from an agent – for instance, when you want the agent to return data in JSON format or fill in a specific schema.
+
+-   **structured.py** – Demonstrates how to define a structured output for an agent. In this script, a Pydantic model (or a dataclass) is likely defined to represent the expected format of the answer (for example, a `Response` model with fields like `summary: str` and `score: int`). The agent is then configured with this model as its `output_type`. The code shows how the agent’s reply will be automatically parsed into that model, ensuring the content matches the schema. It may also illustrate prompting strategies to encourage the model output (like providing instructions such as “answer in JSON format according to the schema”). When you run `structured.py`, the agent will produce an output that can be directly interpreted as a Python object, demonstrating the power of structured outputs.
+    
+
+This example is particularly helpful for developers who need reliable formats from the AI (such as integrating the agent’s response into another system or database). By studying `structured.py`, you’ll learn how to enforce structure on the agent’s responses and handle scenarios where the agent’s answer might not initially conform to the expected schema.

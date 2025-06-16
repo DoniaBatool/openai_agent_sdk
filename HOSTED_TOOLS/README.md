@@ -1,0 +1,12 @@
+# HOSTED_TOOLS
+
+This folder contains implementations and examples for **hosted tools** – tools that extend an agent’s abilities, such as web search or file system access. In the OpenAI Agents SDK, some tools are provided or can be custom-built to allow the agent to perform actions like searching the internet or reading files. The scripts here define such tools and show them in use.
+
+-   **ComputerTool.py** – Defines a “computer” tool that allows the agent to perform calculations or code execution. This might be an example of a tool that evaluates Python expressions or performs mathematical computations on behalf of the agent. The script likely includes a class or function that inherits from the SDK’s Tool interface, implementing a run method to execute arbitrary code or mathematical logic. An agent using this tool can answer computation-heavy questions by delegating to this sandboxed function.
+    
+-   **WebSearchTool.py** – Implements a web search tool for the agent. This tool likely uses an external API (such as DuckDuckGo or Bing’s web search API) to fetch search results. The script sets up the tool so that the agent can query the internet for information. For example, if the user asks a knowledge question, the agent can call the WebSearchTool to retrieve up-to-date information and then formulate an answer. This example demonstrates how to integrate internet access in a controlled manner.
+    
+-   **fileSearch.py** – Provides a file search or file-reading tool. The tool could search for files on the local system or search within the contents of a file. For instance, it might allow the agent to look up a document by name or read the text from a file and return it. In an example scenario, if a user asks “Find information in document X,” the agent can use this tool to open and search the document’s content. The script shows how to implement such functionality safely (e.g., likely restricted to a certain directory or file types).
+    
+
+Together, these tools expand what the agent can do beyond text prediction – they let it take actions. In practice, you would register these tools with an agent (using the SDK’s API) and then the agent’s prompt or logic can decide when to use them. Reading these scripts will help you understand how tools are structured and how to create custom tools for your own agent’s needs. To test them, you can integrate them into an agent as shown in other examples (for instance, see the `Function_Tools` or `Agent_as_tool` usage patterns).
