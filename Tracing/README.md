@@ -1,0 +1,10 @@
+# Tracing
+
+The **Tracing** folder provides examples of using the SDK’s tracing functionality to monitor and debug an agent’s decision-making process. Tracing allows you to see step-by-step what the agent is doing – which tools it’s calling, what it’s thinking (in terms of intermediate messages), and how it arrives at the final answer. These scripts help set up and utilize tracing for analysis or logging.
+
+-   **tracing1.py** – A basic tracing example. This script runs an agent on a sample task with tracing enabled. It likely uses the SDK’s built-in tracing utilities (such as initializing a tracer or enabling debug mode) so that as the agent works through the prompt, it outputs a trace log. The trace might show each prompt to the LLM, each tool invocation (with inputs/outputs), and any other internal events. By reading the console/log output from `tracing1.py`, you can follow the agent’s reasoning path in detail.
+    
+-   **tracing2.py** – An advanced tracing scenario or a variant setup. This script might demonstrate a more complex use-case for tracing, such as tracing a multi-agent interaction or integrating with an external tracing service (for example, sending trace data to a dashboard or storing it for analysis). It could also showcase how to add custom trace spans or tags for specific parts of the agent’s operation. For instance, if the agent uses a tool, `tracing2.py` might label those events or measure the time taken for each step.
+    
+
+By using these tracing examples, developers can learn how to debug their agents. Tracing is invaluable when an agent’s behavior is not as expected – the trace output will reveal whether the agent misunderstood instructions, chose an incorrect tool, or got stuck in a loop. Running these scripts will illustrate how to activate tracing and how the output can be interpreted.

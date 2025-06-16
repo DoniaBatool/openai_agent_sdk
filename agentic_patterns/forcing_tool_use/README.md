@@ -1,0 +1,12 @@
+# Forcing Tool Use
+
+The **forcing_tool_use** subfolder (within `agentic_patterns`) contains targeted examples of controlling an agent’s tool usage behavior. These scripts illustrate how to guide or constrain the agent in when and how it calls tools during its reasoning process, which can be important for ensuring the agent follows certain operational rules.
+
+-   **custom_function.py** – Demonstrates how to inject a custom function call or enforce the use of a particular function/tool in the agent’s chain of thought. This example may modify the agent’s prompt or utilize a custom tool to make sure the agent executes a specific function as part of solving the task. It’s useful for scenarios where a certain computation or lookup _must_ be done by a tool rather than the LLM.
+    
+-   **run_llm_again.py** – Shows a pattern where the agent is prompted to invoke the language model again (a second pass) if a certain condition is met (for example, if no tool was used in the first pass). This can be a strategy to force the agent to consider using a tool: the script might check the result of the first attempt, and if the agent didn’t use any tools when it was supposed to, it adjusts the context and runs the LLM agent again. It highlights how to programmatically loop the agent’s execution until a desired criterion (like tool usage) is satisfied.
+    
+-   **stop_on_first_tool.py** – Illustrates how to halt the agent’s reasoning once a tool has been successfully called. In some workflows, you may not want the agent to continue generating a final answer after obtaining a tool’s result (instead, you might want the tool result itself to be the final answer). This script likely sets up logic or uses SDK features so that as soon as the agent uses a tool and gets an answer, it stops the LLM from continuing. This ensures the agent doesn’t over-elaborate or stray beyond the needed action.
+    
+
+Together, these examples teach how to exert fine-grained control over an agent’s tool usage. By using them, developers can ensure agents adhere to specific patterns (like always use a tool for certain queries, or never go beyond the first tool call). To experiment, you can run each script and observe the agent’s behavior changes – for instance, see how `run_llm_again.py` might do two iterations, or how `stop_on_first_tool.py` yields an answer right after a tool execution. These patterns are especially useful for optimizing agent reliability and safety in tool-rich environments.
